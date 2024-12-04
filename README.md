@@ -73,6 +73,7 @@ Project root/
         controllers/ # Manage CRUD operations on models
         database/ # The connectivity to a database server
         routes/ # The routes for a REST API
+        scripts/ # SQL scritps to create database
         models/ # The entities in the database
         .env/ # File containing environment variables such as passwords
     frontend/
@@ -98,7 +99,7 @@ git clone https://github.com/Jim-03/shop-e
 ```
 2. Install dependencies
 ```
-cd shope-e
+cd shop-e
 npm install
 ```
 
