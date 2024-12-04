@@ -1,3 +1,8 @@
 # IDE Folders
 .idea
+
+# Dependencies
 node_modules
+
+# Environment file
+.env
