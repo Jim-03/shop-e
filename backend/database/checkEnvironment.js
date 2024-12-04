@@ -18,23 +18,23 @@ module.exports = function checkVariables() {
     const dbName = process.env.DB_NAME
 
     if (!username) {
-        console.error("Please provide DB_USER=your_username in the backend/.env file")
+        console.error("Please provide DB_USER=your_username in the project's root .env file")
         return false
     } else if (!password) {
-        console.error("Please provide DB_PASS=your_password in the backend/.env file")
+        console.error("Please provide DB_PASS=your_password in the project's root .env file")
         return false
     } else if (!dialect) {
-        console.error("Please provide DB_DIALECT=your_dialect in the backend/.env file")
+        console.error("Please provide DB_DIALECT=your_dialect in the project's root .env file")
         return false
     } else if (!host) {
-        console.error("Please provide DB_HOST=your_host in the backend/.env file")
+        console.error("Please provide DB_HOST=your_host in the project's root .env file")
         return false
     }
     else if (!port) {
-        console.error("Please provide DB_PORT=your_port in the backend/.env file")
+        console.error("Please provide DB_PORT=your_port in the project's root .env file")
         return false
     } else if (!dbName){
-        console.error("Please provide DB_NAME=your_database_name in the backend/.env file")
+        console.error("Please provide DB_NAME=your_database_name in the project's root .env file")
         return false
     }
     return `${dialect}://${username}:${password}@${host}:${port}/${dbName}`
