@@ -2,7 +2,6 @@
  * Module to connect to the database
  */
 
-let database; // Sequelize object that connects to the database
 const checkVariables = require('./checkEnvironment')
 const {Sequelize} = require("sequelize");
 
@@ -22,7 +21,7 @@ async function connectToDatabase() {
         const url = checkVariables()
 
         // Create a new sequelize object
-        database = new Sequelize(url)
+        let database = new Sequelize(url)
 
         // Try connecting to the database
         await database.authenticate()
@@ -33,5 +32,6 @@ async function connectToDatabase() {
         return false
     }
 }
+const database = new Sequelize(checkVariables())
 module.exports = {connectToDatabase, database}
 
