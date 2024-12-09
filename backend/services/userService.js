@@ -1,5 +1,6 @@
 const UserRepo = require('../repository/userRepository');
 const bcrypt = require('bcrypt');
+const userModel = require('../models/user')
 module.exports = class userService {
   constructor () {
     this.repository = new UserRepo();
@@ -48,6 +49,14 @@ module.exports = class userService {
     }
   }
 
+  /**
+   * Retrieves the details of the user
+   * @param username The account's username
+   * @param phone The account's phone number
+   * @param email The account's email address
+   * @param password The account's password
+   * @returns {Promise<{status: string, message: string, data: userModel}>} An object containing retrieval details
+   */
   async getUser (username, phone, email, password) {
     // Check if at least one identifier is provided
     if (!username && !phone && !email) {
@@ -101,6 +110,12 @@ module.exports = class userService {
     }
   }
 
+  /**
+   * Updates an existing user's data
+   * @param oldUsername The old username for identifying the old account
+   * @param newData The new data to replace with
+   * @returns {Promise<{message: string, status: string}>} an object confirming whether updated
+   */
   async updateUser (oldUsername, newData) {
     // Check if the old username is provided
     if (!oldUsername) {
@@ -140,6 +155,12 @@ module.exports = class userService {
     }
   }
 
+  /**
+   * Deletes a user from the database
+   * @param username The account's username
+   * @param password The account's password
+   * @returns {Promise<{message: string, status: string}>} An object confirming whether there was a successful deletion
+   */
   async delete (username, password) {
     // Check if arguments are provided
     if (!username) {
