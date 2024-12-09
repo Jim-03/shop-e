@@ -73,7 +73,9 @@ Project root/
         controllers/ # Manage CRUD operations on models
         database/ # The connectivity to a database server
         routes/ # The routes for a REST API
+        repository/ # Layers that interacts directly with the dataase
         scripts/ # SQL scritps to create database
+        services # Layers that work together with repository for CRUD operations
         models/ # The entities in the database
         .env/ # File containing environment variables such as passwords
     frontend/
