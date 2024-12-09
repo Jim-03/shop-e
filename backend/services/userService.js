@@ -105,7 +105,8 @@ module.exports = class userService {
     } catch (e) {
       return {
         status: 'error',
-        message: `An error occurred while fetching the account -> ${e.message}`
+        message: `An error occurred while fetching the account -> ${e.message}`,
+        data: null
       };
     }
   }
