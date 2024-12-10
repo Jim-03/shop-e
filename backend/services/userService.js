@@ -1,6 +1,5 @@
 const UserRepo = require('../repository/userRepository');
 const bcrypt = require('bcrypt');
-const userModel = require('../models/user')
 module.exports = class userService {
   constructor () {
     this.repository = new UserRepo();
