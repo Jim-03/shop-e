@@ -198,3 +198,5 @@ class reviewService {
     }
   }
 }
+
+module.exports = reviewService
