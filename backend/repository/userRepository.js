@@ -72,4 +72,14 @@ module.exports = class userRepository {
       throw new Error(`Failed to update user: ${e.message}`);
     }
   }
+
+  /**
+   * Checks if a user exists
+   * @param {bigint}id The user's primary key
+   * @returns {Promise<boolean>} true if found, false otherwise
+   */
+  async userExistsById (id) {
+    const user = await userModel.findByPk(id);
+    return !!(user);
+  }
 };
