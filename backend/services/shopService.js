@@ -1,6 +1,5 @@
 const ShopRepo = require('../repository/shopRepository');
 const UserService = require('userService');
-const shopModel = require('../models/shop');
 const bcrypt = require('bcrypt');
 module.exports = class shopService {
   constructor () {
