@@ -199,4 +199,4 @@ class reviewService {
   }
 }
 
-module.exports = reviewService
+module.exports = reviewService;
