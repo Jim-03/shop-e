@@ -112,18 +112,17 @@ module.exports = class userService {
 
   /**
    * Updates an existing user's data
-   * @param oldUsername The old username for identifying the old account
+   * @param {bigint}userId The user's primary key
    * @param newData The new data to replace with
    * @returns {Promise<{message: string, status: string}>} an object confirming whether updated
    */
-  async updateUser (oldUsername, newData) {
-    // Check if the old username is provided
-    if (!oldUsername) {
-      return {
+  async updateUser (userId, newData) {
+    // Check if the user id is provided and correct
+    if (!userId || isNaN(userId) || userId <= 0) return {
         status: 'rejected',
-        message: 'The old username is required!'
+        message: 'Provide the user id!'
       };
-    }
+
 
     // Check if the new data is provided and filled
     if (!newData || Object.keys(newData).length === 0) {
@@ -135,16 +134,19 @@ module.exports = class userService {
 
     try {
       // Fetch the user's data
-      const oldAccountData = this.repository.userExists(oldUsername);
-      if (!oldAccountData) {
-        return {
+      const oldAccountData = await this.repository.userExistsById(userId);
+      if (!oldAccountData) return {
           status: 'not_found',
           message: 'The specified account wasn\'t found!'
         };
+      // Hash the new password if it exists
+      if (newData.password !== null) {
+        const salt = await bcrypt.genSalt()
+        newData["password_hash"] = await bcrypt.hash(newData.password, salt)
       }
-      await this.repository.updateData(oldUsername, newData);
+      await this.repository.updateData(userId, newData);
       return {
-        status: 'updated',
+        status: 'success',
         message: 'Your account was successfully updated'
       };
     } catch (e) {
