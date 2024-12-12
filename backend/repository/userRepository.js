@@ -57,15 +57,14 @@ module.exports = class userRepository {
   }
 
   /**
-     * Updates user's data
-     * @param username account's username
-     * @param data the new information to update to
-     * @returns {Promise<boolean>} true on successful update, false otherwise
-     */
-  async updateData (username, data) {
+   * Updates user's data
+   * @param {bigint}userId The user's primary key
+   * @param data the new information to update to
+   * @returns {Promise<boolean>} true on successful update, false otherwise
+   */
+  async updateData (userId, data) {
     try {
-      if (!await this.userExists(username, null, null)) return false;
-      const userData = await this.findUser(username, null, null);
+      const userData = await userModel.findByPk(userId);
       await userData.update(data);
       return true;
     } catch (e) {
