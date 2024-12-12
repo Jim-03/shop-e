@@ -179,7 +179,7 @@ module.exports = class userService {
     }
     try {
       // Fetch account details
-      const account = this.repository.findUser(username, null, null);
+      const account = await this.repository.findUser(username, null, null);
 
       // Check if account exists
       if (!account) {
