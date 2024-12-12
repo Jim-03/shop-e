@@ -26,7 +26,7 @@ module.exports = class userService {
       if (exists) {
         return {
           status: 'duplicate',
-          message: 'Another account already exists with this credentials'
+          message: 'Another account already exists with these credentials'
         };
       }
 
