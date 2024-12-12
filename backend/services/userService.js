@@ -37,7 +37,7 @@ module.exports = class userService {
       // Save the user
       await this.repository.createUser(userData);
       return {
-        status: 'success',
+        status: 'created',
         message: 'Account successfully created'
       };
     } catch (e) {
