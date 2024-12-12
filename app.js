@@ -5,6 +5,9 @@
 const express = require('express');
 const app = express();
 const { connectToDatabase } = require('./backend/database/database.js');
+app.use(express.json())
+const userRoute = require('./backend/routes/userRoute')
+app.use(userRoute)
 
 async function startServer () {
   // Try connecting to the database
