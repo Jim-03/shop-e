@@ -1,5 +1,4 @@
 const Repo = require('../repository/deliveryTrackingRepository')
-const {del} = require("express/lib/application");
 module.exports = class DeliveryTrackingService {
     constructor() {
         this.repo = new Repo()
