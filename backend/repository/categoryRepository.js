@@ -35,7 +35,11 @@ module.exports = class categoryRepository {
      * @returns {Promise<[categoryModel]>}
      */
   async findByShop (id) {
-    return await categoryModel.findAll({ where: { shop_id: id } });
+    try {
+      return await categoryModel.findAll({where: {shop_id: id}});
+    } catch (e) {
+      throw new Error(`Failed to fetch categories in the shop: ${e.message}`)
+    }
   }
 
   /**
