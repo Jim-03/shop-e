@@ -15,7 +15,7 @@ const category = {
     allowNull: false
   },
   shop_id: {
-    type: BIGINT,
+    type: DataTypes.BIGINT,
     allowNull: false
   },
   description: {
