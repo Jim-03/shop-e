@@ -32,7 +32,11 @@ module.exports = class shopRepository {
      * @returns {Promise<shopModel>} The shop's data or null
      */
   async get (shopName) {
-    return await shopModel.findOne({ where: { name: shopName } });
+    try {
+      return await shopModel.findOne({where: {name: shopName}});
+    } catch (e) {
+      throw new Error(`Failed to fetch the shop details: ${e.message}`)
+    }
   }
 
   /**
