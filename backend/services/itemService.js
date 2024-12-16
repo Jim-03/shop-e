@@ -6,6 +6,8 @@ const CategoryService = require('categoryService');
  * @type {itemService}
  */
 module.exports = class itemService {
+  private repo;
+
   constructor () {
     this.repo = new ItemRepo();
     this.categoryService = new CategoryService();
