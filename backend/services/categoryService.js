@@ -1,5 +1,5 @@
 const CategoryRepo = require('../repository/categoryRepository');
-const ShopService = require('shopService');
+const ShopService = require('./shopService');
 
 module.exports = class categoryService {
   constructor () {
