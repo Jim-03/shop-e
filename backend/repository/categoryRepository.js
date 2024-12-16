@@ -36,9 +36,9 @@ module.exports = class categoryRepository {
      */
   async findByShop (id) {
     try {
-      return await categoryModel.findAll({where: {shop_id: id}});
+      return await categoryModel.findAll({ where: { shop_id: id } });
     } catch (e) {
-      throw new Error(`Failed to fetch categories in the shop: ${e.message}`)
+      throw new Error(`Failed to fetch categories in the shop: ${e.message}`);
     }
   }
 

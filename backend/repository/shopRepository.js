@@ -33,9 +33,9 @@ module.exports = class shopRepository {
      */
   async get (shopName) {
     try {
-      return await shopModel.findOne({where: {name: shopName}});
+      return await shopModel.findOne({ where: { name: shopName } });
     } catch (e) {
-      throw new Error(`Failed to fetch the shop details: ${e.message}`)
+      throw new Error(`Failed to fetch the shop details: ${e.message}`);
     }
   }
 
