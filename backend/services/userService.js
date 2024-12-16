@@ -142,7 +142,7 @@ module.exports = class userService {
       // Hash the new password if it exists
       if (newData.password !== null) {
         const salt = await bcrypt.genSalt()
-        newData["password_hash"] = await bcrypt.hash(newData.password, salt)
+        newData.password_hash = await bcrypt.hash(newData.password, salt)
       }
       await this.repository.updateData(userId, newData);
       return {
