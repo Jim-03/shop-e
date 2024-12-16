@@ -63,13 +63,13 @@ module.exports = class categoryService {
 
     try {
       // Fetch shop's details
-      const shop = this.service.read(shopName);
+      const shop = await this.service.read(shopName);
 
       // Check if shop exists
       if (shop.status !== 'success') {
         return {
-          status: 'not_found',
-          message: `The shop ${shopName} doesn't exist`,
+          status: shop.status,
+          message: shop.message,
           data: null
         };
       }
@@ -166,6 +166,48 @@ module.exports = class categoryService {
       return {
         status: 'error',
         message: `An error has occurred while deleting the category -> ${e.message}`
+      };
+    }
+  }
+
+  /**
+   * Retrieves a category's data by id
+   * @param {bigint}id The category's primary key
+   * @returns {Promise<{message: string, category: category | null, status: string}>} An object response with the
+   * category's data or null
+   */
+  async getCategory (id) {
+    // Check if id is valid
+    if (!id || isNaN(id) || id <= 0) {
+      return {
+        status: 'rejected',
+        message: 'Enter a valid category id!',
+        category: null
+      };
+    }
+
+    try {
+      // Fetch category data
+      const category = await this.repo.findById(id);
+
+      // Check if category exists
+      if (!category) {
+        return {
+          status: 'not_found',
+          message: 'The specified category wasn\'t found!',
+          category: null
+        };
+      }
+      return {
+        status: 'success',
+        message: 'Category was found',
+        category
+      };
+    } catch (e) {
+      return {
+        status: 'error',
+        message: `An error has occurred while fetching the category -> ${e.message}`,
+        category: null
       };
     }
   }
