@@ -209,16 +209,16 @@ module.exports = class shopService {
   /**
      * Updates an existing shop's data
      * @param newShopData The shop's new data
-     * @param shopName The name of the shop
+     * @param shopId The shop's primary key
      * @param user The owner's credentials
      * @returns {Promise<{message: string, status: string}>} An object confirming whether the shop was updated
      */
-  async updateShop (newShopData, shopName, user) {
+  async updateShop (newShopData, shopId, user) {
     // Check if arguments are provided
-    if (!shopName || shopName.length === 0) {
+    if (!shopId || isNaN(shopId) || shopId <= 0) {
       return {
         status: 'rejected',
-        message: 'Provide the old shop\'s name!'
+        message: 'Provide shop\'s id!'
       };
     }
     if (!newShopData || Object.keys(newShopData).length === 0) {
@@ -236,18 +236,18 @@ module.exports = class shopService {
 
     try {
       // Fetch the shop's data
-      const shop = await this.repo.get(shopName);
+      const shop = await this.repo.findById(shopId);
 
       // Check if shop exists
       if (!shop) {
         return {
           status: 'not_found',
-          message: `The shop ${shopName} doesn't exist!`
+          message: `The shop doesn't exist!`
         };
       }
 
       // Update the shop
-      await this.repo.update(newShopData, shopName);
+      await this.repo.update(newShopData, shopId);
       return { status: 'success', message: 'Shop successfully updated' };
     } catch (e) {
       return {
@@ -259,16 +259,16 @@ module.exports = class shopService {
 
   /**
      * Deletes a shop from the database
-     * @param shopName The name of the shop to delete
+     * @param shopId The shop's primary key
      * @param accountPassword The password of the owner's account
      * @returns {Promise<{message: string, status: string}>} An object describing the deletion outcome
      */
-  async delete (shopName, accountPassword) {
+  async delete (shopId, accountPassword) {
     // Check if the arguments are provided
-    if (!shopName || shopName.length === 0) {
+    if (!shopId || isNaN(shopId) || shopId <= 0) {
       return {
         status: 'rejected',
-        message: 'Provide the shop\'s name'
+        message: 'Provide shop\'s id!'
       };
     }
     if (!accountPassword || accountPassword.length === 0) {
@@ -280,13 +280,13 @@ module.exports = class shopService {
 
     try {
       // Fetch the shop's data
-      const shop = await this.repo.get(shopName);
+      const shop = await this.repo.findById(shopId);
 
       // Check if shop exists
       if (!shop) {
         return {
           status: 'not_found',
-          message: `The shop ${shopName} wasn't found!`
+          message: `The shop wasn't found!`
         };
       }
 
