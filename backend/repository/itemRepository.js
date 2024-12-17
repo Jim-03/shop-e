@@ -121,3 +121,19 @@ class ItemRepository {
       throw new Error(`Failed to get item: ${e.message}`)
     }
   }
+
+  /**
+   * Retrieves a list of all items
+   * @returns {Promise<Model<any, TModelAttributes>[]>} The items list or null
+   * TODO pagination and sorting
+   */
+  async getAll() {
+    try {
+      return await itemModel.findAll()
+    } catch (e) {
+      throw new Error(`Failed to get items: ${e.message}`)
+    }
+  }
+}
+
+module.exports = ItemRepository
