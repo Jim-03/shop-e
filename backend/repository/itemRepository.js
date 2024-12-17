@@ -5,7 +5,7 @@ const { Op } = require('sequelize');
  * Item Model's repository class
  * @type {ItemRepository}
  */
-module.exports = class ItemRepository {
+class ItemRepository {
   /**
      * Checks whether an item exists in the specified category
      * @param name The name of the item
