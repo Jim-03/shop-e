@@ -312,4 +312,42 @@ module.exports = class shopService {
       };
     }
   }
+
+
+  /**
+   * Retrieves a shop's data
+   * @param id The shop's primary key
+   * @returns {Promise<{shop: * | null, message: string, status: string}>} The shop's data or null
+   */
+  async getShop(id) {
+    // Validate the id
+    if (!id || isNaN(id) || id <= 0) return {
+      status: 'rejected',
+      message: 'Provide a valid shop id!',
+      shop: null
+    }
+
+    try {
+      // Fetch  the shop's data
+      const shop = await this.repo.findById(id)
+
+      // Check if shop exists
+      if (!shop) return {
+        status: 'not_found',
+        message: 'Shop not found!',
+        shop: null
+      }
+      return {
+        status: 'success',
+        message: 'Shop found',
+        shop: shop
+      }
+    } catch (e) {
+      return {
+        status: 'error',
+        message: `An error has occurred while fetching the shop's details ${e.message}`,
+        shop: null
+      }
+    }
+  }
 };
