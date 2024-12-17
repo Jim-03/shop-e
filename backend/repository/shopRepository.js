@@ -78,4 +78,19 @@ module.exports = class shopRepository {
       throw new Error(`Failed to update: ${e.message}`);
     }
   }
+
+  /**
+   * Retrieves a shop's data
+   * @param id The shops primary key
+   * @returns {Promise<shopModel>} The shop's data, null if not found
+   * @throws Error
+   */
+  async findById(id) {
+    try {
+      return await shopModel.findByPk(id)
+    } catch (e) {
+      throw new Error(`Failed to get the shop: ${e.message}`)
+    }
+
+  }
 };
