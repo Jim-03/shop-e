@@ -10,8 +10,13 @@ const { connectToDatabase } = require('./backend/database/database.js');
 app.use(express.json())
 const userRoute = require('./backend/routes/userRoute')
 const categoryRoute = require('./backend/routes/categoryRoute')
+const itemRoute = require('./backend/routes/itemRoute')
+const shopRoute = require('./backend/routes/shopRoute')
+
 app.use(userRoute)
 app.use(categoryRoute)
+app.use(itemRoute)
+app.use(shopRoute)
 
 /**
  * The server's main execution point
