@@ -217,4 +217,37 @@ class itemService {
       };
     }
   }
-};
+
+  /**
+   * Retrieves a list of all items
+   * @returns {Promise<{message: string, items: item[] | null, status: string}>} An object response with the item list or null
+   * TODO pagination and sorting
+   */
+  async getAll() {
+    try {
+      // Fetch all items
+      const items = await this.repo.getAll()
+
+      // Check if items exist
+      if (!items) return {
+        status: 'not_found',
+        message: 'No items at the moment!',
+        items: null
+      }
+
+      return {
+        status: 'success',
+        message: 'Items found',
+        items: Array.isArray(items) ? items : [items]
+      }
+    } catch (e) {
+      return {
+        status: 'error',
+        message: `An error has occurred while fetching the list of items -> ${e.message}`,
+        items: null
+      }
+    }
+  }
+}
+
+module.exports = itemService
