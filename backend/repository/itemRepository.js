@@ -108,4 +108,16 @@ class ItemRepository {
       throw new Error(`Failed to delete item: ${e.message}`);
     }
   }
-};
+
+  /**
+   * Retrieves an item
+   * @param id The item's primary key
+   * @returns {Promise<Model<any, TModelAttributes>>}
+   */
+  async findById(id) {
+    try {
+      return await itemModel.findByPk(id)
+    } catch (e) {
+      throw new Error(`Failed to get item: ${e.message}`)
+    }
+  }
