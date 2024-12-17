@@ -66,13 +66,13 @@ module.exports = class shopRepository {
   /**
      * Updates a shop's data
      * @param newShopData The shop's new data
-     * @param shopName The name of the shop
+     * @param shopId The shop's primary key
      * @returns {Promise<boolean>} true on successful update
      * @throws Error
      */
-  async update (newShopData, shopName) {
+  async update (newShopData, shopId) {
     try {
-      const shop = await shopModel.findOne({ where: { name: shopName } });
+      const shop = await shopModel.findOne({ where: { id: shopId } });
       await shop.update(newShopData);
     } catch (e) {
       throw new Error(`Failed to update: ${e.message}`);
