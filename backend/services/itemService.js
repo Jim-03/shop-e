@@ -5,8 +5,7 @@ const CategoryService = require('./categoryService');
  * A service class for the Item model
  * @type {itemService}
  */
-module.exports = class itemService {
-  private repo;
+class itemService {
 
   constructor () {
     this.repo = new ItemRepo();
