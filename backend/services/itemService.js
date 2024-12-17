@@ -9,7 +9,6 @@ class itemService {
 
   constructor () {
     this.repo = new ItemRepo();
-    this.categoryService = new CategoryService();
   }
 
   /**
