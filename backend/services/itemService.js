@@ -60,7 +60,7 @@ class itemService {
      * @param {string}name The name of the item
      * @returns {Promise<{data: items[], message: string, status: string}>} A feedback object containing the list of
      *          items
-     * todo Pagination and Sorting
+     * TODO Pagination and Sorting
      */
   async getItems (name) {
     // Check if name is provided
@@ -105,36 +105,26 @@ class itemService {
 
   /**
      * Gets a specific item from a shop
-     * @param {string}name The name of the item
-     * @param {bigint}shopId The shop's primary key
+     * @param {bigint}id The item's primary key
      * @returns {Promise<{item: item, message: string, status: string}>} A feedback object with/without the item's data
      */
-  async get (name, shopId) {
-    // Check if name is provided
-    if (!name || name.length === 0) {
-      return {
-        status: 'rejected',
-        message: 'Enter the item\'s name',
-        item: null
-      };
-    } // Check if shop id is correct
-    if (!shopId || isNaN(shopId) || shopId <= 0) {
-      return {
-        status: 'rejected',
-        message: 'Provide the shop\'s id to which the item belongs to!',
-        item: null
-      };
+  async get (id) {
+    // Check if id is valid
+    if (!id || isNaN(id) || id <= 0) return {
+      status: 'rejected',
+      message: 'Provide the correct item id!',
+    item: null
     }
 
     try {
       // Fetch item details
-      const item = await this.repo.findByName(name, shopId);
+      const item = await this.repo.findById(id);
 
       // Check if item exists
       if (!item) {
         return {
           status: 'not_found',
-          message: `Item ${name} not found!`,
+          message: `Item not found!`,
           item: null
         };
       }
