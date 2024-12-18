@@ -15,6 +15,7 @@ const shopRouter = require('./backend/routes/shopRoute');
 const reviewRouter = require('./backend/routes/reviewRoute');
 const orderRouter = require('./backend/routes/orderRoute');
 const orderedItemRouter = require('./backend/routes/orderedItemRoute');
+const deliveryTrackingRouter = require('./backend/routes/deliveryTrackingRoute');
 
 app.use(userRouter);
 app.use(categoryRouter);
@@ -23,6 +24,7 @@ app.use(shopRouter);
 app.use(reviewRouter);
 app.use(orderRouter);
 app.use(orderedItemRouter);
+app.use(deliveryTrackingRouter);
 
 /**
  * The server's main execution point
