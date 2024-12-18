@@ -85,7 +85,8 @@ class reviewService {
 
     try {
       // Check if item exists
-      if (await ItemRepo().findById(itemId)) {
+      const itemRepository = new ItemRepo()
+      if (await itemRepository.findById(itemId)) {
         // Fetch the reviews
         const reviews = await this.repo.fetchReviewByItemId(itemId);
 
