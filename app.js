@@ -7,16 +7,18 @@ const app = express();
 const { connectToDatabase } = require('./backend/database/database.js');
 
 // Routing
-app.use(express.json())
-const userRoute = require('./backend/routes/userRoute')
-const categoryRoute = require('./backend/routes/categoryRoute')
-const itemRoute = require('./backend/routes/itemRoute')
-const shopRoute = require('./backend/routes/shopRoute')
+app.use(express.json());
+const userRoute = require('./backend/routes/userRoute');
+const categoryRoute = require('./backend/routes/categoryRoute');
+const itemRoute = require('./backend/routes/itemRoute');
+const shopRoute = require('./backend/routes/shopRoute');
+const reviewRoute = require('./backend/routes/reviewRoute');
 
-app.use(userRoute)
-app.use(categoryRoute)
-app.use(itemRoute)
-app.use(shopRoute)
+app.use(userRoute);
+app.use(categoryRoute);
+app.use(itemRoute);
+app.use(shopRoute);
+app.use(reviewRoute);
 
 /**
  * The server's main execution point
