@@ -1,6 +1,6 @@
 const Repo = require('../repository/OrderedItemRepository');
 const itemModel = require('../models/item');
-const orderService = require('./orderService');
+const OrderService = require('./orderService');
 
 class OrderedItemService {
   constructor () {
@@ -68,7 +68,8 @@ class OrderedItemService {
 
     try {
       // Fetch the order
-      const order = await orderService().getOrder(orderId);
+      const orderService = new OrderService()
+      const order = await orderService.getOrder(orderId);
       if (order.order === null) {
         return {
           status: order.status,
