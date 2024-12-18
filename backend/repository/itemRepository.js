@@ -114,11 +114,11 @@ class ItemRepository {
    * @param id The item's primary key
    * @returns {Promise<Model<any, TModelAttributes>>}
    */
-  async findById(id) {
+  async findById (id) {
     try {
-      return await itemModel.findByPk(id)
+      return await itemModel.findByPk(id);
     } catch (e) {
-      throw new Error(`Failed to get item: ${e.message}`)
+      throw new Error(`Failed to get item: ${e.message}`);
     }
   }
 
@@ -127,13 +127,13 @@ class ItemRepository {
    * @returns {Promise<Model<any, TModelAttributes>[]>} The items list or null
    * TODO pagination and sorting
    */
-  async getAll() {
+  async getAll () {
     try {
-      return await itemModel.findAll()
+      return await itemModel.findAll();
     } catch (e) {
-      throw new Error(`Failed to get items: ${e.message}`)
+      throw new Error(`Failed to get items: ${e.message}`);
     }
   }
 }
 
-module.exports = ItemRepository
+module.exports = ItemRepository;

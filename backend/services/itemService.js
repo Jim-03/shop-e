@@ -6,7 +6,6 @@ const CategoryService = require('./categoryService');
  * @type {itemService}
  */
 class itemService {
-
   constructor () {
     this.repo = new ItemRepo();
   }
@@ -110,10 +109,12 @@ class itemService {
      */
   async get (id) {
     // Check if id is valid
-    if (!id || isNaN(id) || id <= 0) return {
-      status: 'rejected',
-      message: 'Provide the correct item id!',
-    item: null
+    if (!id || isNaN(id) || id <= 0) {
+      return {
+        status: 'rejected',
+        message: 'Provide the correct item id!',
+        item: null
+      };
     }
 
     try {
@@ -124,7 +125,7 @@ class itemService {
       if (!item) {
         return {
           status: 'not_found',
-          message: `Item not found!`,
+          message: 'Item not found!',
           item: null
         };
       }
@@ -223,31 +224,33 @@ class itemService {
    * @returns {Promise<{message: string, items: item[] | null, status: string}>} An object response with the item list or null
    * TODO pagination and sorting
    */
-  async getAll() {
+  async getAll () {
     try {
       // Fetch all items
-      const items = await this.repo.getAll()
+      const items = await this.repo.getAll();
 
       // Check if items exist
-      if (!items) return {
-        status: 'not_found',
-        message: 'No items at the moment!',
-        items: null
+      if (!items) {
+        return {
+          status: 'not_found',
+          message: 'No items at the moment!',
+          items: null
+        };
       }
 
       return {
         status: 'success',
         message: 'Items found',
         items: Array.isArray(items) ? items : [items]
-      }
+      };
     } catch (e) {
       return {
         status: 'error',
         message: `An error has occurred while fetching the list of items -> ${e.message}`,
         items: null
-      }
+      };
     }
   }
 }
 
-module.exports = itemService
+module.exports = itemService;
