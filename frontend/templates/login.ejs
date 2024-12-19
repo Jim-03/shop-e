@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/login.css">
+</head>
+<body>
+    <main>
+        <form id="login-form">
+            <p id="notificationSection"></p>
+            <label for="username">Username:</label>
+            <input type="text" required id="username" placeholder="Username, email or phone">
+            <div>
+                <label for="viewPassword">View Password</label>
+                <input type="checkbox" name="viewPassword" id="viewPassword">
+            </div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required placeholder="Password">
+            <button id="submit">Login</button>
+            <p>Don't have an account, <a href="http://0.0.0.0:5123/signup">Sign Up</a></p>
+        </form>
+    </main>
+    <footer style="
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;">
+        &copy; 2024 Shop-E. All rights reserved.
+        <br>
+        <a href="mailto:jimmycn03@gmail.com">Contact Developer</a>
+    </footer>
+    <script src="JS/login.js"></script>
+</body>
+</html>
