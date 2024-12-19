@@ -16,6 +16,7 @@ const reviewRouter = require('./backend/routes/reviewRoute');
 const orderRouter = require('./backend/routes/orderRoute');
 const orderedItemRouter = require('./backend/routes/orderedItemRoute');
 const deliveryTrackingRouter = require('./backend/routes/deliveryTrackingRoute');
+const HTMLRouter = require('./backend/routes/HTMLRoute.js')
 
 app.use(userRouter);
 app.use(categoryRouter);
@@ -25,6 +26,12 @@ app.use(reviewRouter);
 app.use(orderRouter);
 app.use(orderedItemRouter);
 app.use(deliveryTrackingRouter);
+app.use(HTMLRouter);
+
+// View engine
+app.set('view engine', 'ejs')
+app.set('views', './frontend/templates')
+app.use(express.static('./frontend/public'))
 
 /**
  * The server's main execution point
