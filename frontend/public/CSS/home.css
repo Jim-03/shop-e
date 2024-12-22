@@ -1,0 +1,324 @@
+/* Overall basic structure */
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+header {
+    background-color: #4CAF50;
+    max-height: 15vh;
+    min-height: 10vh;
+}
+
+#searchDiv i {
+    position: absolute;
+}
+.navButtons {
+    background-color:black;
+    border-radius: 5px;
+}
+
+.navButtons p {
+    text-decoration: none;
+    color: white;
+}
+.navButtons i {
+    color: white;
+}
+
+.navButtons:hover {
+    cursor: pointer;
+}
+.navButtons p:hover{
+    cursor: pointer;
+}
+
+main {
+    height: 80vh;
+}
+
+footer {
+    height: 5vh;
+}
+
+/* Responsive design */
+/* Phones */
+@media (max-width: 480px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+
+    header h1 {
+        padding-bottom: 5px;
+    }
+
+    #searchDiv {
+        width: 95%;
+        height: 50px;
+        align-content: center;
+        align-items: center;
+        padding: 0 10px 0 5px;
+        display: flex;
+    }
+
+    #searchDiv i {
+        padding: 5px;
+    }
+
+    #searchInput, #searchButton {
+        height: 35px;
+        border: none;
+    }
+
+    #searchInput {
+        width: 70%;
+        padding-left: 25px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    #searchButton {
+        background-color: black;
+        color: white;
+        width: 30%;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    header nav {
+        margin-top: 3px;
+        height: 50px;
+        width: 98%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .navButtons {
+        height: 30px;
+        width: 80px;
+        align-content: center;
+    }
+    .navButtons i {
+        padding-left: 5px;
+        position: absolute;
+    }
+
+    .navButtons p {
+        padding-left: 30px;
+    }
+}
+
+/* Laptop */
+@media (min-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        width: 20%;
+        margin-right: 30px;
+        height: 80px;
+        align-content: center;
+        text-align: center;
+    }
+
+    #searchDiv {
+        width: 50%;
+        height: 50px;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        padding: 0 10px 0 10px;
+    }
+
+    #searchDiv i {
+        padding-left: 10px;
+        height: 40px;
+        width: 30px;
+        align-items: center;
+        align-content: center;
+        position: absolute;
+    }
+
+    #searchInput {
+        height: 80%;
+        width: 80%;
+        padding-left: 35px;
+        border: none;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    #searchButton {
+        height: 80%;
+        width: 10%;
+        background-color: black;
+        color: white;
+        border: none;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    header nav {
+        height: 50px;
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 1px;
+    }
+    .navButtons {
+        align-content: center;
+        align-items: center;
+        min-width: 80px;
+        height: 80%;
+        display: flex;
+    }
+
+    .navButtons i {
+        padding-left: 10px;
+    }
+    .navButtons p {
+        min-width: 50px;
+        text-align: center;
+    }
+
+    .navButtons:hover {
+        background-color: #555;
+        color: #fff;
+    }
+
+    main {
+        background-color: rgb(241, 241, 241);
+    }
+    #sideBar {
+        width: 200px;
+        height: 82vh;
+        background-color: rgb(243, 243, 243);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: fixed;
+        align-items: center;
+    }
+
+    #sideBar button {
+        height: 50px;
+        width: 150px;
+        text-decoration: underline;
+        border: none;
+        border-radius: 30px;
+        text-align: justify-all;
+    }
+
+    #sideBar button {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #filterButton {
+        position: fixed;
+        right: 0;
+        margin-right: 2px;
+        height: 50px;
+        width: 100px;
+    }
+
+    #displaySection {
+        background-color: rgb(218, 218, 218);
+        z-index: 1;
+        height: 79vh;
+        margin: 5px 5px 1px 205px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-y: scroll;
+    }
+
+    .items{
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        width: 30%;
+        height: 400px;
+        margin: 10px;
+    }
+
+    .items:hover {
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+    }
+    .items img {
+        border: 1px solid black;
+        margin-left: 50px;
+        height: 200px;
+        width: 70%;
+    }
+
+    #filterSection {
+        position: absolute;
+        height: 82vh;
+        background-color: rgb(0, 0, 0, 0.7);
+        width: 100%;
+        display: none;
+        align-content: center;
+    }
+
+    #filterForm {
+        min-height: 50%;
+        width: 30%;
+        background-color: white;
+        margin: auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border-radius: 10px;
+    }
+
+    #filterForm p {
+        text-align: right;
+        position: absolute;
+        right: 0;
+        width: 50px;
+        height: 30px;
+        font-size: 30px;
+        text-align: center;
+        align-content: center;
+        margin-right: 494px;
+        margin-bottom: 305px;
+    }
+
+    #filterForm p:hover {
+        cursor: pointer;
+    }
+
+    #filterButtons {
+        display: flex;
+        justify-content: space-between;
+    }
+    #filterForm button {
+        width: 30%;
+        height: 30px;
+    }
+
+    #applyFilter {
+        background-color: green;
+    }
+
+    #resetFilter {
+        background-color: red;
+    }
+}
