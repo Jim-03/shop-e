@@ -128,9 +128,10 @@ function notifySignUp (color, message) {
   // Set display
   notification.style.display = 'block';
 
-    setTimeout(() => {
-        notification.style.display = 'none';
-    }, 3000);
+  setTimeout(() => {
+    notification.style.display = 'none';
+  }, 5000);
+}
 
 
 }
