@@ -45,18 +45,6 @@ module.exports = class userRepository {
   }
 
   /**
-     * Checks whether a user exists
-     * @param username optional username
-     * @param email optional email
-     * @param phone optional phone number
-     * @returns {Promise<boolean>} true if found, false otherwise
-     */
-  async userExists (username, email, phone) {
-    const user = await this.findUser(username, email, phone);
-    return !!(user);
-  }
-
-  /**
    * Updates user's data
    * @param {bigint}userId The user's primary key
    * @param data the new information to update to
@@ -80,5 +68,44 @@ module.exports = class userRepository {
   async userExistsById (id) {
     const user = await userModel.findByPk(id);
     return !!(user);
+  }
+
+  /**
+   * Retrieves a user's data using email address
+   * @param {string}email The user's email address
+   * @returns {Promise<userModel|null>} The user's data or null
+   */
+  async findByEmail (email) {
+    try {
+      return await userModel.findOne({ where: { email } });
+    } catch (e) {
+      throw new Error(`Failed to get user: ${e.message}`);
+    }
+  }
+
+  /**
+   * Retrieves a user's data using phone number
+   * @param phone The user's phone number
+   * @returns {Promise<userModel|null>} The user's data
+   */
+  async findByPhone (phone) {
+    try {
+      return await userModel.findOne({ where: { phone } });
+    } catch (e) {
+      throw new Error(`Failed to get user: ${e.message}`);
+    }
+  }
+
+  /**
+   * Retrieves a user's data using username
+   * @param username The user's username
+   * @returns {Promise<userModel|null>} The user's data
+   */
+  async findByUsername (username) {
+    try {
+      return await userModel.findOne({ where: { username } });
+    } catch (e) {
+      throw new Error(`Failed to get user: ${e.message}`);
+    }
   }
 };
