@@ -9,7 +9,7 @@ body {
 }
 #notification {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -40,8 +40,8 @@ body {
 }
 
 #signUp label{
-    height: 50px;
-    border-radius:30px;
+    height: 30px;
+    border-radius:5px;
     align-content: center;
     padding-left: 20px;
     background-color: rgb(196, 196, 196);
@@ -49,8 +49,8 @@ body {
 
 #signUp input {
     border: none;
-    border-radius: 30px;
-    height: 50px;
+    border-radius: 5px;
+    height: 30px;
     padding-left: 20px;
 }
 
