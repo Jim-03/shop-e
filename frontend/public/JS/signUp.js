@@ -63,10 +63,10 @@ async function addUser () {
 
   try {
     const user = {
-      username,
+      username: username.toLowerCase(),
       password,
       email,
-      name,
+      name: capitalizeName(name),
       phone
     };
     const data = await fetchUser(user);
