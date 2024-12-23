@@ -68,7 +68,7 @@ class OrderedItemService {
 
     try {
       // Fetch the order
-      const orderService = new OrderService()
+      const orderService = new OrderService();
       const order = await orderService.getOrder(orderId);
       if (order.order === null) {
         return {
