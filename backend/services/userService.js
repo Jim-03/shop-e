@@ -22,11 +22,30 @@ module.exports = class userService {
     // Attempt adding to the database
     try {
       // Check if user exists
-      const exists = await this.repository.userExists(userData.username, userData.email, userData.phone);
-      if (exists) {
+      // Username
+      const usernameExists = await this.repository.findByUsername(userData.username);
+      if (usernameExists !== null) {
         return {
           status: 'duplicate',
-          message: 'Another account already exists with these credentials'
+          message: 'Username already exists!'
+        };
+      }
+
+      // Email
+      const emailExists = await this.repository.findByEmail(userData.email);
+      if (emailExists !== null) {
+        return {
+          status: 'duplicate',
+          message: 'An account already uses this email address!'
+        };
+      }
+
+      // Phone exists
+      const phoneExists = await this.repository.findByPhone(userData.phone);
+      if (phoneExists !== null) {
+        return {
+          status: 'duplicate',
+          message: 'An account already uses this phone number!'
         };
       }
 
