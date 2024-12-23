@@ -148,4 +148,4 @@ function capitalizeName (name) {
   return capitalizedName.join(' ');
 }
 
-document.getElementById("signUpButton").addEventListener('click', addUser)
+document.getElementById('signUpButton').addEventListener('click', addUser);
