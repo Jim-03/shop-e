@@ -133,7 +133,19 @@ function notifySignUp (color, message) {
   }, 5000);
 }
 
+/**
+ * Auto capitalizes a user's name
+ * @param name The name of the user
+ * @returns {string} The capitalized name
+ */
+function capitalizeName (name) {
+  const nameList = name.toLowerCase().split(' ');
+  const capitalizedName = [];
+  nameList.forEach(name => {
+    capitalizedName.push(name.charAt(0).toUpperCase() + name.slice(1));
+  });
 
+  return capitalizedName.join(' ');
 }
 
 document.getElementById("signUpButton").addEventListener('click', addUser)
