@@ -4,12 +4,12 @@
  */
 async function addUser () {
   // Fetch new user data
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('newPassword').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
-  const email = document.getElementById('email').value;
-  const phone = document.getElementById('phone').value;
-  const name = document.getElementById('fullName').value;
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('newPassword').value.trim();
+  const confirmPassword = document.getElementById('confirmPassword').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const name = document.getElementById('fullName').value.trim();
 
   // Check if password is entered
   if (!password || password.length !== 8) {
