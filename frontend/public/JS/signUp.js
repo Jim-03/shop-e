@@ -112,21 +112,21 @@ async function fetchUser (user) {
  * @param color The color of the message
  * @param message The message content
  */
-function notifySignUp(color, message) {
-    // Get the notification tag
-    const notification = document.getElementById('notification')
+function notifySignUp (color, message) {
+  // Get the notification tag
+  const notification = document.getElementById('notification');
 
-    // Clear previous notification
-    notification.textContent = '';
+  // Clear previous notification
+  notification.textContent = '';
 
-    // Set message
-    notification.textContent = message.trim()
+  // Set message
+  notification.textContent = message.trim();
 
-    // Set color
-    notification.style.color = color;
+  // Set color
+  notification.style.color = color;
 
-    // Set display
-    notification.style.display = 'block'
+  // Set display
+  notification.style.display = 'block';
 
     setTimeout(() => {
         notification.style.display = 'none';
