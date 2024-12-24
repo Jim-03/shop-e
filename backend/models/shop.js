@@ -16,7 +16,8 @@ const shop = {
     allowNull: false
   },
   location: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: true
   },
   email: {
     type: DataTypes.STRING(100),
