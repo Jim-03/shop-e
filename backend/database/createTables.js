@@ -17,10 +17,6 @@ const orderedItemModel = require('../models/ordered_items');
 const createTables = function () {
   // Define relationships
 
-  // Shop-Category
-  shopModel.hasMany(categoryModel, { foreignKey: 'shop_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
-  categoryModel.belongsTo(shopModel, { foreignKey: 'shop_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
-
   // Shop-Order
   shopModel.hasMany(orderModel, { foreignKey: 'shop_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
   orderModel.belongsTo(shopModel, { foreignKey: 'shop_id', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
