@@ -46,65 +46,6 @@ module.exports = class categoryService {
   }
 
   /**
-     * Retrieves a list of categories in a specified shop
-     * @param {string}shopName The name of the shop
-     * @returns {Promise<{status: string, message: string, data: [categoryModel]}>} An object containing the database's
-     * response
-     */
-  async getAllFromShop (shopName) {
-    // Check if shop name is provided
-    if (!shopName || shopName.length === 0) {
-      return {
-        status: 'rejected',
-        message: 'Provide the name of the shop!',
-        data: null
-      };
-    }
-
-    try {
-      // Fetch shop's details
-      const shop = await this.service.read(shopName);
-
-      // Check if shop exists
-      if (shop.status !== 'success') {
-        return {
-          status: shop.status,
-          message: shop.message,
-          data: null
-        };
-      }
-
-      // Fetch the list of categories from that shop
-      const list = await this.repo.findByShop(shop.id);
-
-      // Check if list is empty
-      if (!list) {
-        return {
-          status: 'not_found',
-          message: 'The shop doesn\'t have any category yet!',
-          data: null
-        };
-      }
-
-      // Ensure the fetched list is an array
-      const categoryList = Array.isArray(list) ? list : [list];
-
-      // Return fetched data
-      return {
-        status: 'success',
-        message: 'Category list found',
-        data: categoryList
-      };
-    } catch (e) {
-      return {
-        status: 'error',
-        message: `An error has occurred while fetching the categories -> ${e.message}`,
-        data: null
-      };
-    }
-  }
-
-  /**
      * Updates an existing category
      * @param {bigint}id The category's id
      * @param {categryModel}newData The category's new data

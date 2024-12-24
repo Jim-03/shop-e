@@ -16,19 +16,6 @@ const addCategory = function (req, res) {
 };
 
 /**
- * Retrieves a list of categories registered in a shop
- * @param req The http request
- * @param res Response from the service
- */
-const getCategories = function (req, res) {
-  const shopName = req.params.shopName;
-  service.getAllFromShop(shopName)
-    .then(response => {
-      res.status(getStatusCode(response.status)).json(response);
-    });
-};
-
-/**
  * Retrieves a category's data
  * @param req The HTTP request
  * @param res The HTTP response
@@ -69,7 +56,6 @@ const deleteCategory = function (req, res) {
 };
 module.exports = {
   addCategory,
-  getCategories,
   getCategory,
   update,
   deleteCategory
