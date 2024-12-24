@@ -1,4 +1,4 @@
-const sideBarButtons = document.querySelectorAll('#sideBar button')
+const sideBarButtons = document.querySelectorAll('#sideBar button');
 
 sideBarButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -53,23 +53,23 @@ function fetchAndDisplay (categoryName) {
     });
 }
 
-const navigationButtons = document.querySelectorAll('.navButtons')
+const navigationButtons = document.querySelectorAll('.navButtons');
 navigationButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const name = button.getAttribute('id')
-        switch (name) {
-            case 'accountDiv':
-                location.replace('http://0.0.0.0:5123/account')
-                break
-            case 'helpDiv':
-                location.replace('http://0.0.0.0:5123/help')
-                break
-            case 'cartDiv':
-                location.replace('http://0.0.0.0:5123/cart')
-                break
-            case 'loginDiv':
-                location.replace('http://0.0.0.0:5123/login')
-                break
-        }
-    })
-})
+  button.addEventListener('click', () => {
+    const name = button.getAttribute('id');
+    switch (name) {
+      case 'accountDiv':
+        location.replace('http://0.0.0.0:5123/account');
+        break;
+      case 'helpDiv':
+        location.replace('http://0.0.0.0:5123/help');
+        break;
+      case 'cartDiv':
+        location.replace('http://0.0.0.0:5123/cart');
+        break;
+      case 'loginDiv':
+        location.replace('http://0.0.0.0:5123/login');
+        break;
+    }
+  });
+});
