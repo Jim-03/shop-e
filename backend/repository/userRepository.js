@@ -108,4 +108,17 @@ module.exports = class userRepository {
       throw new Error(`Failed to get user: ${e.message}`);
     }
   }
+
+  /**
+   * Retrieves a user's data by id
+   * @param id The user's primary key
+   * @returns {Promise<Model<any, TModelAttributes>>} The user's data
+   */
+  async findById (id) {
+    try {
+      return await userModel.findByPk(id);
+    } catch (e) {
+      throw new Error(`Failed to get user: ${e.message}`);
+    }
+  }
 };
