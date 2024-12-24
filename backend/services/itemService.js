@@ -229,7 +229,7 @@ class itemService {
       const items = await this.repo.getAll();
 
       // Check if items exist
-      if (!items) {
+      if (!items || items.length === 0) {
         return {
           status: 'not_found',
           message: 'No items at the moment!',
