@@ -8,5 +8,6 @@ route.get('/api/items/:name', controller.getByName);
 route.post('/api/item/new', controller.add);
 route.delete('/api/item/delete', controller.deleteItem);
 route.get('/api/items', controller.getAll);
+route.get('/api/items/category/:name', controller.getByCategory)
 
 module.exports = route;

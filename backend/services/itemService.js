@@ -1,4 +1,5 @@
 const ItemRepo = require('../repository/itemRepository');
+const CategoryRepo = require('../repository/categoryRepository');
 
 /**
  * A service class for the Item model
@@ -75,10 +76,10 @@ class itemService {
       const list = await this.repo.getAllByName(name);
 
       // Check if items exist
-      if (!list) {
+      if (!list || list.length === 0) {
         return {
           status: 'not_found',
-          message: 'No item has been found',
+          message: 'No item has been found!',
           data: null
         };
       }
@@ -247,6 +248,56 @@ class itemService {
         status: 'error',
         message: `An error has occurred while fetching the list of items -> ${e.message}`,
         items: null
+      };
+    }
+  }
+
+  async getByCategoryName (categoryName) {
+    // Validate input data
+    if (!categoryName || categoryName.length === 0) {
+      return {
+        status: 'rejected',
+        message: 'Enter category\'s name!',
+        data: null
+      };
+    }
+
+    try {
+      // Fetch category's data
+      const catRepo = new CategoryRepo();
+      const category = await catRepo.findByName(categoryName);
+
+      // Check if category exists
+      if (!category) {
+        return {
+          status: 'not_found',
+          message: `The category ${categoryName} doesn't exist!`,
+          data: null
+        };
+      }
+
+      // Fetch items in this category
+      const items = await this.repo.findByCategoryId(category.id);
+
+      // Check if category has items
+      if (!items || items.length === 0) {
+        return {
+          status: 'not_found',
+          message: 'The specified category doesn\'t have any items at the moment!',
+          data: null
+        };
+      }
+
+      return {
+        status: 'success',
+        message: 'Items in category found',
+        data: Array.isArray(items) ? items : [items]
+      };
+    } catch (e) {
+      return {
+        status: 'error',
+        message: `An error has occurred wile fetching the items in the category: ${e.message}`,
+        data: null
       };
     }
   }

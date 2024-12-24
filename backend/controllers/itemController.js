@@ -68,9 +68,18 @@ function deleteItem (req, res) {
     });
 }
 
+function getByCategory (req, res) {
+  const categoryName = req.params.name;
+  service.getByCategoryName(categoryName)
+    .then(response => {
+      res.status(getStatusCode(response.status)).json(response);
+    });
+}
+
 module.exports = {
   getItem,
   getAll,
+  getByCategory,
   add,
   getByName,
   update,
