@@ -65,4 +65,17 @@ module.exports = class categoryRepository {
       throw new Error(`Failed to delete: ${e.message}`);
     }
   }
+
+  /**
+   * Retrieves a category's details by name
+   * @param name The name of the category
+   * @returns {Promise<*>} The category's data
+   */
+  async findByName (name) {
+    try {
+      return await categoryModel.findOne({ where: { name } });
+    } catch (e) {
+      throw new Error(`Failed to fetch category: ${e.message}`);
+    }
+  }
 };
