@@ -1,5 +1,5 @@
 const ShopRepo = require('../repository/shopRepository');
-const UserRepository = require('../repository/userRepository')
+const UserRepository = require('../repository/userRepository');
 const bcrypt = require('bcrypt');
 module.exports = class shopService {
   constructor () {
@@ -29,12 +29,14 @@ module.exports = class shopService {
 
       // Get the details of the owner
       const UserRepo = new UserRepository();
-      const owner = await UserRepo.findById(shop.owner_id)
+      const owner = await UserRepo.findById(shop.owner_id);
 
       // Check if owner exists
-      if (!owner) return {
-        status: 'not_found',
-        message: 'The user with the given email doesn\'t exist!'
+      if (!owner) {
+        return {
+          status: 'not_found',
+          message: 'The user with the given email doesn\'t exist!'
+        };
       }
 
       // Complete the shop's data
