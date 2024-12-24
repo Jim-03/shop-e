@@ -3,19 +3,6 @@ const { Op } = require('sequelize');
 
 module.exports = class categoryRepository {
   /**
-     * Checks if a category exists in a shop
-     * @param {string}name The name of the category
-     * @param {bigint}shop_id The shops unique number
-     * @returns {Promise<boolean>} true if found, false otherwise
-     */
-  async existsByName (name, shop_id) {
-    const conditions = {
-      [Op.and]: [{ name }, { shop_id }]
-    };
-    return !!await categoryModel.findOne({ where: conditions });
-  }
-
-  /**
      * Adds a new category to the database
      * @param {categoryModel}category The category's data
      * @returns {Promise<void>}
@@ -26,19 +13,6 @@ module.exports = class categoryRepository {
       await categoryModel.create(category);
     } catch (e) {
       throw new Error(`Failed to create category: ${e.message}`);
-    }
-  }
-
-  /**
-     * Retrieves a list of categories in a shop
-     * @param {bigint}id The shop's id
-     * @returns {Promise<[categoryModel]>}
-     */
-  async findByShop (id) {
-    try {
-      return await categoryModel.findAll({ where: { shop_id: id } });
-    } catch (e) {
-      throw new Error(`Failed to fetch categories in the shop: ${e.message}`);
     }
   }
 
