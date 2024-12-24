@@ -23,11 +23,11 @@ module.exports = class categoryService {
 
     try {
       // Check if another category already exists
-      const exists = await this.repo.existsByName(category.name, category.shop_id);
+      const exists = await this.repo.findByName(category.name);
       if (exists) {
         return {
           status: 'duplicate',
-          message: 'This category already exists in your shop!'
+          message: 'This category already exists!'
         };
       }
 
