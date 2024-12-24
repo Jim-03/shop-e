@@ -1,5 +1,4 @@
 const categoryModel = require('../models/category');
-const { Op } = require('sequelize');
 
 module.exports = class categoryRepository {
   /**
