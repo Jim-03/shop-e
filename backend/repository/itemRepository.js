@@ -134,6 +134,19 @@ class ItemRepository {
       throw new Error(`Failed to get items: ${e.message}`);
     }
   }
+
+  /**
+   * Retrieves a list of items in the same category
+   * @param id The category's primary key
+   * @returns {Promise<Model<any, TModelAttributes>[]>} A list of items
+   */
+  async findByCategoryId (id) {
+    try {
+      return await itemModel.findAll({ where: { category_id: id } });
+    } catch (e) {
+      throw new Error(`Failed to fetch items from the category: ${e.message}`);
+    }
+  }
 }
 
 module.exports = ItemRepository;
