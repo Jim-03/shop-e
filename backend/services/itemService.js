@@ -1,5 +1,4 @@
 const ItemRepo = require('../repository/itemRepository');
-const CategoryService = require('./categoryService');
 
 /**
  * A service class for the Item model
