@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    height: 15vh;
+    background-color: #4CAF50;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+
+#navigationSection {
+    padding: 10px;
+    align-content: center;
+}
+
+#navigationSection nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.options {
+    padding: 30px;
+    border: 1px solid #4CAF50;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    color: #4CAF50;
+    text-decoration: none;
+    transition: all ease 0.3s;
+}
+
+.options:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#terminateAnchor:hover {
+    background-color: red;
+}
+
+#aboutSection, #updateSection {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgb(0, 0, 0, 0.4);
+    display: none;
+}
+
+#about {
+    background-color: white;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#profilePic {
+    width: 60%;
+}
+
+table {
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    height: 50%;
+    background-color: #ececec;
+}
+
+table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+table tbody tr {
+    border-bottom: 1px solid #cccccc;
+}
+
+.accountProperty {
+    padding-right: 30px;
+    width: 100px;
+}
+
+#updateForm {
+    background-color: white;
+    min-height: 70%;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    gap: 10px;
+}
+
+#updateForm div {
+    padding: 10px;
+    border-bottom: 2px solid #cccccc;
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    align-content: center;
+}
+
+#updateForm input {
+    text-align: center;
+}
+#updateButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#updateButtons button{
+    height: 50px;
+    width: 100px;
+}
+
+#updateButtons button[type="reset"] {
+    background-color: red;
+}
+
+#updateButtons button[type="submit"] {
+    background-color: green;
+}
+
+@media (max-width: 480px) {
+    .options {
+      width: 70px;
+    }
+
+    #about, #updateForm {
+        width: 80%;
+        margin-top: 30px;
+    }
+
+    #updateForm {
+        margin-top: 20px;
+    }
+    #updateForm input[type='file'] {
+        width: 200px;
+        margin-left: 10px;
+    }
+
+    #updateForm div label {
+        width: 100px;
+        height: 50px;
+        margin-right: 10px;
+        text-align: center;
+        align-content: center;
+    }
+}
+
+@media (min-width: 1025px) {
+    main {
+        height: 80vh;
+    }
+
+    #navigationSection {
+        height: 100%;
+    }
+
+    .options {
+        width: 30%;
+        height: 50%;
+    }
+
+    .options i {
+        font-size: 30px;
+    }
+
+    #about, #updateForm{
+        margin-top: 50px;
+        width: 30%;
+    }
+
+    #updateForm div label {
+        width: 30%;
+        height: 35px;
+        margin-right: 50px;
+        text-align: center;
+        align-content: center;
+    }
+}
