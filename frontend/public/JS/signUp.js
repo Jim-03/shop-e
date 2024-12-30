@@ -1,4 +1,4 @@
-import {capitalizeName, confirmUserData, notify} from "./userUtils.js";
+import { capitalizeName, confirmUserData, notify } from './userUtils.js';
 
 /**
  * Adds a new user to the database
@@ -13,8 +13,6 @@ async function addUser () {
   const phone = document.getElementById('phone').value.trim();
   const name = document.getElementById('fullName').value.trim();
 
-
-
   try {
     const user = {
       username: username.toLowerCase(),
@@ -25,8 +23,8 @@ async function addUser () {
     };
 
     // Check correct user data
-    const isCorrect = confirmUserData(user, confirmPassword)
-    if (!isCorrect) return
+    const isCorrect = confirmUserData(user, confirmPassword);
+    if (!isCorrect) return;
 
     const data = await fetchUser(user);
 
@@ -65,8 +63,5 @@ async function fetchUser (user) {
 
   return await response.json();
 }
-
-
-
 
 document.getElementById('signUpButton').addEventListener('click', addUser);
