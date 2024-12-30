@@ -59,16 +59,16 @@ navigationButtons.forEach(button => {
     const name = button.getAttribute('id');
     switch (name) {
       case 'accountDiv':
-        window.open('http://0.0.0.0:5123/account', '_blank');
+        window.location.href = 'http://0.0.0.0:5123/account';
         break;
       case 'helpDiv':
-        window.open('http://0.0.0.0:5123/help', '_blank');
+        window.location.href = 'http://0.0.0.0:5123/help';
         break;
       case 'cartDiv':
-        window.open('http://0.0.0.0:5123/cart', '_blank');
+        window.location.href = 'http://0.0.0.0:5123/cart';
         break;
       case 'loginDiv':
-        window.open('http://0.0.0.0:5123/login', '_blank');
+        window.location.href = 'http://0.0.0.0:5123/login';
         break;
     }
   });
