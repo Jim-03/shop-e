@@ -59,16 +59,16 @@ navigationButtons.forEach(button => {
     const name = button.getAttribute('id');
     switch (name) {
       case 'accountDiv':
-        location.replace('http://0.0.0.0:5123/account');
+        window.open('http://0.0.0.0:5123/account', '_blank');
         break;
       case 'helpDiv':
-        location.replace('http://0.0.0.0:5123/help');
+        window.open('http://0.0.0.0:5123/help', '_blank');
         break;
       case 'cartDiv':
-        location.replace('http://0.0.0.0:5123/cart');
+        window.open('http://0.0.0.0:5123/cart', '_blank');
         break;
       case 'loginDiv':
-        location.replace('http://0.0.0.0:5123/login');
+        window.open('http://0.0.0.0:5123/login', '_blank');
         break;
     }
   });
