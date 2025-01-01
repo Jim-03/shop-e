@@ -45,6 +45,7 @@ header {
 .options:hover {
     background-color: #4CAF50;
     color: white;
+    cursor: pointer;
 }
 
 #terminateAnchor:hover {
