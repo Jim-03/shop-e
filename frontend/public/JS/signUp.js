@@ -33,9 +33,11 @@ async function addUser () {
       case 'rejected':
         notify('blue', data.message);
         return;
-      case 'success':
-        notify('green', data.message);
-        location.replace('http://0.0.0.0:5123/user');
+      case 'created':
+        setTimeout(() => {
+          notify('green', data.message);
+        }, 3000);
+        window.location.href = 'http://0.0.0.0:5123/login';
         return;
       default:
         notify('red', data.message);
