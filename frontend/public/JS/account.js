@@ -1,4 +1,5 @@
 import { updatePlaceholders } from './updateAccount.js';
+import { displayOrders } from './orderHistory.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   greetUser();
@@ -47,6 +48,11 @@ navigationOptions.forEach(option => {
     if (anchorId === 'update') {
       document.getElementById('updateSection').style.display = 'block';
       updatePlaceholders();
+      return;
+    }
+    if (anchorId === 'orders') {
+      document.getElementById('orderSection').style.display = 'block';
+      displayOrders();
     }
   });
 });
