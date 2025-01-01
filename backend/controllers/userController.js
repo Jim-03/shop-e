@@ -50,9 +50,9 @@ function updateUser (req, res) {
  * @param res The HTTP response
  */
 function deleteUser (req, res) {
-  const { username } = req.params;
+  const id = parseInt(req.params.id);
   const { password } = req.body;
-  userService.delete(username, password)
+  userService.delete(id, password)
     .then(response => {
       res.status(getStatusCode(response.status)).json(response);
     });

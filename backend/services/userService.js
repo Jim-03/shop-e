@@ -181,16 +181,16 @@ module.exports = class userService {
 
   /**
    * Deletes a user from the database
-   * @param username The account's username
+   * @param {bigint}id The account's primary key
    * @param password The account's password
    * @returns {Promise<{message: string, status: string}>} An object confirming whether there was a successful deletion
    */
-  async delete (username, password) {
+  async delete (id, password) {
     // Check if arguments are provided
-    if (!username) {
+    if (!id || isNaN(id) || id <= 0) {
       return {
         status: 'rejected',
-        message: 'Please enter your username!'
+        message: 'Provide the account\'s id!'
       };
     }
     if (!password) {
@@ -201,7 +201,7 @@ module.exports = class userService {
     }
     try {
       // Fetch account details
-      const account = await this.repository.findUser(username, null, null);
+      const account = await this.repository.findById(id);
 
       // Check if account exists
       if (!account) {
