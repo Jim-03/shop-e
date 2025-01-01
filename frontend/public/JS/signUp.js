@@ -39,6 +39,9 @@ async function addUser () {
         }, 3000);
         window.location.href = 'http://0.0.0.0:5123/login';
         return;
+      case 'duplicate':
+        notify('black', data.message);
+        break;
       default:
         notify('red', data.message);
     }
