@@ -51,7 +51,7 @@ header {
     background-color: red;
 }
 
-#aboutSection, #updateSection {
+#aboutSection, #updateSection, #orderSection {
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -140,12 +140,91 @@ table tbody tr {
     background-color: green;
 }
 
+
+#orderDisplay {
+    background-color: white;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    height: 80%;
+    margin: auto;
+}
+
+#closeOrder {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    text-align: right;
+    cursor: pointer;
+}
+
+#orderDisplay h1 {
+    text-align: center;
+    color: white;
+    background-color: #d60000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order {
+    background-color: #e3f2fd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+.order p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.orderNumber {
+    font-weight: bold;
+    color: #0d47a1;
+}
+
+.orderedItems {
+    color: #333;
+}
+
+.totalPrice {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+.status {
+    font-style: italic;
+    color: green;
+}
+
+.signed,
+.dateDelivered,
+.datePicked {
+    color: #616161;
+    font-size: 12px;
+}
+
 @media (max-width: 480px) {
     .options {
       width: 70px;
     }
 
-    #about, #updateForm {
+    #about, #updateForm, #orderDisplay {
         width: 80%;
         margin-top: 30px;
     }
@@ -185,7 +264,7 @@ table tbody tr {
         font-size: 30px;
     }
 
-    #about, #updateForm{
+    #about, #updateForm, #orderDisplay{
         margin-top: 50px;
         width: 30%;
     }

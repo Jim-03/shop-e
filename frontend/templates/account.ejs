@@ -23,7 +23,7 @@
                     <i class="fa-solid fa-pen-nib"></i>
                     Update
                 </a>
-                <a href="#orders" class="options">
+                <a id="orders" class="options">
                     <i class="fa-solid fa-list"></i>
                     Order History
                 </a>
@@ -125,7 +125,15 @@
                 </div>
             </form>
         </section>
-        <section id="orders"></section>
+        <section id="orderSection">
+            <section id="orderDisplay">
+                <p id="closeOrder">&times;</p>
+                <h1>Orders</h1>
+                <section id="ordersList">
+                </section>
+            </section>
+            
+        </section>
         <section id="cart"></section>
         <section id="services"></section>
         <section id="settings"></section>
@@ -142,7 +150,8 @@
         <br>
         <a href="mailto:jimmycn03@gmail.com">Contact Developer</a>
     </footer>
-    <script type="module" src="JS/account.js"></script>
-    <script src="JS/updateAccount.js"></script>
+    <script type="module" src="../public/JS/account.js"></script>
+    <script type="module" src="JS/updateAccount.js"></script>
+    <script type="module" src="JS/orderHistory.js"></script>
 </body>
 </html>
