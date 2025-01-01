@@ -33,10 +33,7 @@ export function updatePlaceholders () {
 
   // Check if user exists
   if (user === null) {
-    newUsername.setAttribute('placeholder', 'New Username');
-    newName.setAttribute('placeholder', 'Your Official Name');
-    newPhone.setAttribute('placeholder', 'New phone number');
-    newEmail.setAttribute('placeholder', 'New email address');
+    document.getElementById('updateSection').style.display = 'none';
   } else {
     newUsername.value = user.username;
     newName.value = user.name;
