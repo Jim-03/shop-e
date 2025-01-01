@@ -26,7 +26,13 @@ function greetUser () {
   } else {
     greeting = 'Good Evening!';
   }
-  document.getElementById('greeting').textContent = `${greeting} Jimmy`;
+
+  // Get user's name
+  const user = getUser();
+  if (user === null) {
+    return;
+  }
+  document.getElementById('greeting').textContent = `${greeting} ${user.name.split(' ')[0]}`;
 }
 
 const navigationOptions = document.querySelectorAll('.options');
