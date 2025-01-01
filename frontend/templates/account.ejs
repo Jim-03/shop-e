@@ -39,7 +39,7 @@
                     <i class="fa-solid fa-screwdriver-wrench"></i>
                     Settings
                 </a>
-                <a href="#terminate"  class="options" id="terminateAnchor">
+                <a class="options" id="terminate">
                     <i class="fa-solid fa-ban"></i>
                     Terminate
                 </a>
@@ -137,7 +137,21 @@
         <section id="cart"></section>
         <section id="services"></section>
         <section id="settings"></section>
-        <section id="terminate"></section>
+        <section id="terminateSection">
+            <section id="confirmBox">
+                <p>On deleting your account the following will also be deleted:</p>
+                <ul>
+                    <li>Any orders made</li>
+                    <li>Basic account details</li>
+                    <li>Any shop registered under your account</li>
+                </ul>
+                <p>Do you still wish to proceed?</p>
+                <div>
+                    <button id="yes">Yes</button>
+                    <button id="no">No</button>
+                </div>
+            </section>
+        </section>
     </main>
     <footer style="
     background-color: #333;
