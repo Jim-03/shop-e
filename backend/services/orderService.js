@@ -117,7 +117,7 @@ class OrderService {
       // Fetch the list of orders made
       const list = await this.repo.findByCustomer(customerId);
       // Check if customer has any orders
-      if (!list) {
+      if (!list || list.length === 0) {
         return {
           status: 'not_found',
           message: 'No orders have been made!',
