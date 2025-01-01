@@ -1,5 +1,6 @@
 import { updatePlaceholders } from './updateAccount.js';
 import { displayOrders } from './orderHistory.js';
+import { terminateAccount } from './terminateAccount.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   greetUser();
@@ -59,6 +60,10 @@ navigationOptions.forEach(option => {
     if (anchorId === 'orders') {
       document.getElementById('orderSection').style.display = 'block';
       displayOrders();
+      return;
+    }
+    if (anchorId === 'terminate') {
+      terminateAccount();
     }
   });
 });
