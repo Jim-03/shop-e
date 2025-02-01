@@ -40,9 +40,10 @@ async function startServer () {
   // Try connecting to the database
   console.log('Connecting to database...');
   if (await connectToDatabase()) {
-    const port = 5123;
-    app.listen(port, '0.0.0.0', () => {
-      console.log(`Server started successfully and is listening on port: ${port}`);
+    const PORT = 5123;
+    const HOST = '0.0.0.0'
+    app.listen(PORT, HOST, () => {
+      console.log(`Server started successfully at http://${HOST}:${PORT}/`);
     });
     return;
   }
