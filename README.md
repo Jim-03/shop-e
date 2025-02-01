@@ -114,7 +114,9 @@ DB_PASS=your password e.g strong_password
 DB_HOST=your host service e.g localhost
 DB_PORT= the port of the server e.g 3306
 ```
-4. Run the application
+4. Run the module createTables at `backend/database` to create the tables and relationships in the database
+
+5. Run the application
 ```
 npx nodemon app
 ```
