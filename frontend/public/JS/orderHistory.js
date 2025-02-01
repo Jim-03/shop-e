@@ -6,7 +6,7 @@ import { getUser } from './account.js';
  * @return the items data
  */
 function getItem (id) {
-  fetch(`http://0.0.0.0:5123//api/items/get/${id}`)
+  fetch(`/api/items/get/${id}`)
     .then(response => {
       return response.json();
     })
@@ -27,7 +27,7 @@ function getItem (id) {
  * @returns {null, items[]} a list of items or null
  */
 function getItemsFromOrder (id) {
-  fetch(`http://0.0.0.0:5123/api/orderedItems/${id}`)
+  fetch(`/api/orderedItems/${id}`)
     .then(response => {
       return response.json();
     })
@@ -106,7 +106,7 @@ export function displayOrders () {
   if (user === null) return;
 
   // Fetch the orders made by customer
-  const url = `http://0.0.0.0:5123/api/orders/${user.id}`;
+  const url = `/api/orders/${user.id}`;
   fetch(url)
     .then(response => {
       return response.json();

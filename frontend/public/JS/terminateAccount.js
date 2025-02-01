@@ -59,7 +59,7 @@ function displayConfirmBox () {
     }
 
     // Submit the data to the server
-    fetch(`http://0.0.0.0:5123/api/account/delete/${user.id}`, {
+    fetch(`/api/account/delete/${user.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ function displayConfirmBox () {
           notifyInConfirmBox(data.message);
           sessionStorage.setItem('userData', null);
           setTimeout(() => {
-            window.location.href = 'http://0.0.0.0:5123/';
+            window.location.href = '/';
           }, 3000);
           return;
         }

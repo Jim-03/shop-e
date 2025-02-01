@@ -79,7 +79,7 @@ async function updateUser () {
  */
 async function update (user) {
   try {
-    const url = `http://0.0.0.0:5123/api/account/update/${user.id}`;
+    const url = `/api/account/update/${user.id}`;
     const response = await fetch(url, {
       method: 'PUT',
       headers: {

@@ -40,7 +40,7 @@ sideBarButtons.forEach(button => {
 });
 
 function fetchAndDisplay (categoryName) {
-  fetch(`http://0.0.0.0:5123/api/items/category/${categoryName}`)
+  fetch(`/api/items/category/${categoryName}`)
     .then(response => {
       return response.json();
     })
@@ -59,16 +59,16 @@ navigationButtons.forEach(button => {
     const name = button.getAttribute('id');
     switch (name) {
       case 'accountDiv':
-        window.location.href = 'http://0.0.0.0:5123/account';
+        window.location.href = '/account';
         break;
       case 'helpDiv':
-        window.location.href = 'http://0.0.0.0:5123/help';
+        window.location.href = '/help';
         break;
       case 'cartDiv':
-        window.location.href = 'http://0.0.0.0:5123/cart';
+        window.location.href = '/cart';
         break;
       case 'loginDiv':
-        window.location.href = 'http://0.0.0.0:5123/login';
+        window.location.href = '/login';
         break;
     }
   });

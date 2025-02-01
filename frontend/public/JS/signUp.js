@@ -37,7 +37,7 @@ async function addUser () {
         setTimeout(() => {
           notify('green', data.message);
         }, 3000);
-        window.location.href = 'http://0.0.0.0:5123/login';
+        window.location.href = '/login';
         return;
       case 'duplicate':
         notify('black', data.message);
@@ -57,7 +57,7 @@ async function addUser () {
  */
 async function fetchUser (user) {
   // Add user to the api
-  const url = 'http://0.0.0.0:5123/api/account/new';
+  const url = '/api/account/new';
   const response = await fetch(url, {
     method: 'POST',
     headers: {

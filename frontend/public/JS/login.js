@@ -28,7 +28,7 @@ function inputType (input) {
  * @returns {Promise<Object>} The response JSON
  */
 async function fetchUser (user) {
-  const url = 'http://0.0.0.0:5123/api/account/get';
+  const url = '/api/account/get';
 
   const response = await fetch(url, {
     method: 'POST',
@@ -84,7 +84,7 @@ async function getUser (event) {
     case 'success':
       notifyLogin('darkgreen', data.message);
       sessionStorage.setItem('userData', JSON.stringify(data.data));
-      location.replace('http://0.0.0.0:5123/home');
+      location.replace('/home');
       break;
     case 'not_found':
       notifyLogin('purple', data.message);

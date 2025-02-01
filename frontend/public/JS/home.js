@@ -28,7 +28,7 @@ function closeFilterForm () {
 async function displayItems () {
   try {
     // Fetch items from the database
-    const response = await fetch('http://0.0.0.0:5123/api/items');
+    const response = await fetch('/api/items');
     const data = await response.json();
 
     // Check if the response is ok
@@ -94,7 +94,7 @@ async function searchItem () {
       await displayItems();
       return;
     }
-    const url = `http://0.0.0.0:5123/api/items/${name}`;
+    const url = `/api/items/${name}`;
     const response = await fetch(url);
     const data = await response.json();
 
