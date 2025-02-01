@@ -116,7 +116,7 @@ DB_PORT= the port of the server e.g 3306
 ```
 4. Run the application
 ```
-nodemon app
+npx nodemon app
 ```
 The output should contain `Connected to the database successfully` on a successful startup
 ## Contact
