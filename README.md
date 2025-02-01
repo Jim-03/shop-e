@@ -105,7 +105,7 @@ cd shop-e
 npm install
 ```
 
-3. Create a .env file with the following content:
+3. Create a .env file (in the project root) with the following content:
 ```
 DB_DIALECT=your dialect e.g mysql
 DB_NAME=the name of the database e.g online_shopping
