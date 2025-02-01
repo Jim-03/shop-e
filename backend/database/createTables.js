@@ -60,3 +60,5 @@ const createTables = function () {
     });
   return false;
 };
+
+createTables();
