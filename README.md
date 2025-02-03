@@ -107,9 +107,9 @@ npm install
 
 3. Create a .env file (in the project root) with the following content:
 ```
-DB_DIALECT=your dialect e.g mysql
+DB_DIALECT=mysql
 DB_NAME=the name of the database e.g online_shopping
-DB_USER=you username e.g online_shop_user
+DB_USER=your username e.g online_shop_user
 DB_PASS=your password e.g strong_password
 DB_HOST=your host service e.g localhost
 DB_PORT= the port of the server e.g 3306
