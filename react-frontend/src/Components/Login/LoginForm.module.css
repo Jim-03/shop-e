@@ -1,0 +1,81 @@
+.loginForm {
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid rgb(201, 0, 201);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgb(201, 0, 201, 0.3);
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 10px;
+}
+
+.loginForm h1 {
+  text-align: center;
+  color: rgb(201, 0, 201);
+}
+
+.loginForm h1:hover {
+  cursor: default;
+}
+
+.loginForm label {
+  margin: 30px 0 3px 0;
+  color: rgb(201, 0, 201);
+  font-weight: bold;
+}
+
+.loginForm div {
+  border: 1px solid rgb(201, 0, 201, 0.3);
+  border-radius: inherit;
+  height: 50px;
+  display: flex;
+  width: auto;
+}
+
+.icons {
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  border-right: 1px solid rgb(201, 0, 201);
+  color: purple;
+}
+.loginForm div input {
+  flex-grow: 1;
+  border: none;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  padding-left: 10px;
+}
+
+.loginForm div input:focus {
+  outline: none;
+}
+
+.loginForm button {
+  margin-top: 30px;
+  height: 50px;
+  color: white;
+  background-color: purple;
+  border-radius: inherit;
+  transition: 100ms;
+  border: none;
+}
+
+.loginForm button:hover {
+  background-color: rgb(201, 0, 201);
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 10px rgb(201, 0, 201, 0.8);
+  cursor: pointer;
+}
+
+.loginForm a {
+  margin: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  color: purple;
+}
+
+.loginForm a:hover {
+  text-decoration: underline;
+}
