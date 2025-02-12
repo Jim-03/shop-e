@@ -1,0 +1,87 @@
+.notification {
+    border: 1px solid rgb(0, 0, 0, 0.5);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0, 0.5);
+    min-width: 30%;
+    min-height: 15%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    display: none;
+    flex-direction: column;
+}
+
+.error {
+    border: 1px solid rgb(255, 0, 0, 0.3);
+}
+
+.error .notificationHeader{
+    background-color: red;
+}
+
+.warning {
+    border: 1px solid rgba(255, 255, 0, 0.3);
+}
+
+.warning .notificationHeader{
+    background-color: yellow;
+}
+
+.success {
+    border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.success .notificationHeader{
+    background-color: green;
+}
+
+.info {
+    border: 1px solid rgba(0, 0, 255, 0.3);
+}
+
+.info .notificationHeader {
+    background-color: blue;
+}
+
+.notificationHeader {
+    background-color: rgb(0, 0, 0, 0.5);
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 30%;
+}
+
+.closeDiv {
+    display: flex;
+    justify-content: right;
+}
+
+.closeDiv p {
+    color: black;
+    width: 30px;
+    text-align: center;
+    font-size: 30px;
+    align-items: center;
+}
+
+
+.closeDiv p:hover {
+    cursor: pointer;
+}
+
+.notificationType {
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    align-content: center;
+}
+
+.notificationBody {
+    padding: 5px;
+    text-align: center;
+    align-content: center;
+    flex-grow: 1;
+}
