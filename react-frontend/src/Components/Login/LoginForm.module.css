@@ -1,12 +1,14 @@
 .loginForm {
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid rgb(201, 0, 201);
+  border: 1px solid rgb(201, 0, 201, 0.3);
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgb(201, 0, 201, 0.3);
+  background-color: white;
   display: flex;
   flex-direction: column;
   width: 30%;
   padding: 10px;
+  margin-top: 130px;
 }
 
 .loginForm h1 {
@@ -37,7 +39,7 @@
   align-items: center;
   height: 100%;
   padding: 0 10px;
-  border-right: 1px solid rgb(201, 0, 201);
+  border-right: 1px solid rgb(201, 0, 201, 0.3);
   color: purple;
 }
 .loginForm div input {
@@ -78,4 +80,10 @@
 
 .loginForm a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+    .loginForm {
+        margin-top: 100px;
+    }
 }
