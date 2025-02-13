@@ -9,7 +9,7 @@
   right: 0;
   margin-bottom: 30px;
   margin-right: 30px;
-  display: none;
+  display: flex;
   flex-direction: column;
 }
 
